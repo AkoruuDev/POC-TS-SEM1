@@ -1,6 +1,6 @@
-# Races list
+# Breeds list
 
-POC for a TS study, the back-end searches, creates, updates, and deletes contents on races table from Rin20 system
+POC for a TS study, the back-end searches, creates, updates, and deletes contents on breeds table from Rin20 system
 
 ## How to run for development
 
@@ -12,10 +12,10 @@ npm i
 ```
 
 3. Create a PostgreSQL database with 'rintwenty' name
-4. Create a database table with 'races' name using the format below
+4. Create a database table with 'breeds' name using the format below
 
 ```psql
-CREATE TABLE races (
+CREATE TABLE breeds (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
     cientific TEXT NOT NULL,
@@ -25,12 +25,12 @@ CREATE TABLE races (
 );
 ```
 
-5. Create a database table with 'hab_races' name using the format below
+5. Create a database table with 'hab_breeds' name using the format below
 
 ```psql
-CREATE TABLE hab_races (
+CREATE TABLE hab_breeds (
     id SERIAL PRIMARY KEY,
-    race_id INTEGER REFERENCES "races"("id") NOT NULL,
+    breed_id INTEGER REFERENCES "breeds"("id") NOT NULL,
     habilities TEXT NOT NULL    
 );
 ```
@@ -45,7 +45,7 @@ npm run dev
 ## populating the tables
 
 ### GET route
-`/races`
+`/breeds`
 
 It return a object in format
 
@@ -77,12 +77,12 @@ It return a object in format
 ```
 
 ### POST route
-`/race`
+`/breed`
 
 Send in the format bellow
 
 ```
-const newRace = {
+const newBreed = {
     name: "",
     cientific: "",
     description: "",
@@ -94,22 +94,22 @@ const newRace = {
 }
 ```
 
-It return with message `Race created successfully`
+It return with message `breed created successfully`
 
 ### DELETE route
-`/race/:id`
-where `:id` is the race id you want delete
+`/breed/:id`
+where `:id` is the breed id you want delete
 
-It return with message `Race deleted successfully`
+It return with message `breed deleted successfully`
 
 ### UPDATE route
-`/race/:id`
-where `:id` is the race you want update
+`/breed/:id`
+where `:id` is the breed you want update
 
 Send in the format bellow
 
 ```
-const newRace = {
+const updateBreed = {
     name: "",
     cientific: "",
     description: "",
@@ -122,4 +122,4 @@ const newRace = {
 ```
 where the content you want not update, you don't have to send
 
-It return with message `Race updated successfully`
+It return with message `breed updated successfully`

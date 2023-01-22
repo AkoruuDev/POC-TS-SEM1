@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 
-import races from "./routes/races.routes";
+import races from "./routes/breeds.routes";
 
 dotenv.config();
 const port = process.env.PORT || 5000;
